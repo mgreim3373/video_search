@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css?family=Bitter:700");
+
+.image-container {
+  background-image: url("./granola.jpg"); /* The image used - important! */
+  position: absolute; /* Needed to position the cutout text in the middle of the image */
+  height: 50%; /* Some height */
+  width: 100%;
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: slideImage 2s linear;
+  animation-fill-mode: forwards;
+}
+
+.colorPlane {
+  background: #bf1515;
+  width: 100%;
+  height: 100%;
+  opacity:.3;
+  animation: colorChange 2s linear;
+  animation-fill-mode: forwards;
+}
+
+.text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Bitter', serif;
+  background-color: white;
+  color: black;
+  font-size: 10vw; /* Responsive font size */
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen; /* This makes the cutout text possible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideText 2s linear;
+  animation-fill-mode: forwards;
+}
+
+.text{
+
+}
+.subTitle{
+  color: black;
+  font-size: 3.5vw;
+  position: absolute;
+  top: 44.5%;
+  left: 43%;
+  letter-spacing: 0.2em;
+  opacity: 0;
+  animation: show 2.5s linear 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.box {
+  height: 35%;
+  width: 45%;
+  z-index: 100;
+  /* background: red; */
+  position: absolute;
+  /* background-repeat: no-repeat; */
+  left: 30.6%;
+  top: 23%;
+}
+.path {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: dash 1.7s linear 1.1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 2000;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slideText {
+  from {transform:translateX(0%);}
+  to {transform:translateX(-10%);}
+}
+
+@keyframes slideImage {
+  from {transform:translateX(0%);}
+  to {transform:translateX(10%);}
+}
+
+@keyframes colorChange {
+  from {opacity: .3;}
+  to {opacity: 1;}
+}
+
+@keyframes show {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
